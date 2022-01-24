@@ -5,7 +5,8 @@
         <CardInfo :renderCard="activeCard"/>
       </article>
       <article class="card-stack">
-          <CardInfo v-for="card in listOfCards" :key="card.cardNumber" :renderCard="card"/>
+          <CardInfo v-for="card in listOfCards" :key="card.cardNumber"
+           @sendActiveCard="setActiveCard" :renderCard="card"/>
       </article>
       <button @click="addCard">ADD NEW CARD</button>
   </section>
@@ -22,10 +23,17 @@ export default {
         listOfCards(){
             return this.cards
         }
+        // activeCard(){
+        //     return 
+        // }
     },
     methods: {
         addCard(){
             this.$emit('changeView')
+        },
+        setActiveCard(newActiveCard){
+            this.activeCard = newActiveCard
+            // console.log(newActiveCard)
         }
     },
     data(){return{
@@ -34,6 +42,20 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+    .active-card {
+        margin: 2rem;
+    }
+
+    .card-stack{
+        display: grid;
+        grid-auto-rows: 3rem;
+        height: 25rem;
+        margin-bottom: 1rem;
+    }
+/* 
+    .card-stack .card {
+        height: 3rem;
+    } */
 
 </style>

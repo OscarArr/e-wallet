@@ -13,7 +13,7 @@ export default {
 	name: 'App',
 	components: {AddCardView, HomeView},
 	data(){return{
-		view: 'AddCardView',
+		view: 'HomeView',
 	cardsArray:[
 		{
 		vendor: "bitcoin", 

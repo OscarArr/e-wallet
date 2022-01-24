@@ -1,11 +1,11 @@
 <template>
-	<section v-if="card" :class="['card', classGenerator]">
+	<section v-if="card" @click="$emit('sendActiveCard', card)" :class="['card', classGenerator]">
 		<div class="wifichip">
 			<div class="wifi"></div>
 			<div class="chip"></div>
 		</div>
 		<div class="logo"></div>
-		<p v-if="card" class="card-number">{{card.cardNumber}}</p>
+		<p v-if="card" class="card-number">{{ }}</p>
 		<div class="cardholder-name">
 			<p>CARDHOLDER NAME</p>
 			<p v-if="card.cardHolder" class="cardholder">{{card.cardHolder.toUpperCase()}}</p>
@@ -35,6 +35,9 @@ export default {
 	computed:{
 		card(){
 			return this.renderCard
+		},
+		name(){
+			return this.renderCard.cardHolder ? this.renderCard.cardHolder : 'Firstname Lastname'
 		},
 		classGenerator(){
 			return this.card.vendor
