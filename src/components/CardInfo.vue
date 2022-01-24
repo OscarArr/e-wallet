@@ -55,6 +55,7 @@ export default {
 	height: calc(90vw * 0.618);
 	background-color: darkgray;
 	border-radius: 0.5rem;
+	box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.5);
 }
 
 .card {
@@ -88,13 +89,17 @@ export default {
 }
 
 .chip {
-	background-image: url("../assets/chip.svg");
-	background-repeat: no-repeat;
+	/* background-image: url("../assets/chip.svg"); */
+	background: url("../assets/chip.svg"), linear-gradient(90deg, rgba(179,176,174,1) 0%, rgba(223,207,189,1) 65%);
+	border-radius: 8px;
+	/* background-repeat: no-repeat; */
+	height: 2.4rem;
 }
 .chip, .logo, .wifi {
-	height: 3rem;
+	height: 2.4rem;
 	width: 3rem;
 	background-size: contain;
+	background-repeat: no-repeat;
 }
 
 .valid-MY {
@@ -112,8 +117,9 @@ export default {
 }
 
 .bitcoin {
-	background-color: linear-gradient(248.04deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0) 99.07%), #FFAE34;
+	background: linear-gradient(248.04deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0) 99.07%), #FFAE34;
 }
+
 .bitcoin .wifichip .wifi {
 	background-image: url("../assets/wifi.svg");
 	background-repeat: no-repeat;
@@ -124,21 +130,26 @@ export default {
 }
 
 .blockchain {
-	background-color: linear-gradient(248.52deg, rgba(0, 0, 0, 0.15) 1.49%, rgba(0, 0, 0, 0) 100%), #8B58F9;
-	background-image: url("../assets/blockchain.svg");
-	background-position: right top;
-	background-repeat: no-repeat;
+	background: linear-gradient(248.52deg, rgba(0, 0, 0, 0.15) 1.49%, rgba(0, 0, 0, 0) 100%), #8B58F9;
+	color: white;
 }
+
+.blockchain .logo {
+	background-image: url("../assets/blockchain.svg");
+}
+
 .blockchain .wifichip .wifi {
 	background-image: url("../assets/wifi_white.svg");
 	background-repeat: no-repeat;
 }
 
 .evil {
-	background-color: right top;
+	background: linear-gradient(248.3deg, rgba(0, 0, 0, 0.16) 0%, rgba(0, 0, 0, 0) 100%), #F33355;
+	color: white;
+}
+
+.evil .logo {
 	background-image: url("../assets/evil.svg");
-	background-repeat: no-repeat;
-	background-position: linear-gradient(248.3deg, rgba(0, 0, 0, 0.16) 0%, rgba(0, 0, 0, 0) 100%), #F33355;
 }
 
 .evil .wifichip .wifi {
@@ -147,10 +158,12 @@ export default {
 }
 
 .ninja {
-	background-color: linear-gradient(248.3deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0) 100%), #222222;
+	background: linear-gradient(248.3deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0) 100%), #222222;
+	color: white;
+}
+
+.ninja .logo {
 	background-image: url("../assets/ninja.svg");
-	background-repeat: no-repeat;
-	background-position: right top;
 }
 
 .ninja .wifichip .wifi {

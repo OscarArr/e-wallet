@@ -1,7 +1,7 @@
 <template>
 <section>
   <CardInfo :renderCard="newCard"/>
-  <NewCardForm @updateCard="renderCard"/>
+  <NewCardForm @updateCard="renderCard" @send="pushCard"/>
 </section>
 </template>
 
@@ -18,6 +18,9 @@ data(){return{
 methods:{
 	renderCard(cardInfo){
 		this.newCard = cardInfo
+	},
+	pushCard(createdCard){
+		this.$emit('pushedCard', createdCard)
 	}
 }
 }

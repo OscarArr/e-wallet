@@ -1,7 +1,7 @@
 <template>
 	<div id="app">
-		<HomeView />
-		<AddCardView />
+		<HomeView v-if="view=='HomeView'" @changeView="view='AddCardView'" :cards="cardsArray" />
+		<AddCardView v-if="view=='AddCardView'" @pushedCard="pushCreatedCard"/>
 	</div>
 </template>
 
@@ -11,11 +11,9 @@ import HomeView from './views/HomeView.vue'
 
 export default {
 	name: 'App',
-	components: {
-		AddCardView,
-	HomeView
-	},
+	components: {AddCardView, HomeView},
 	data(){return{
+		view: 'AddCardView',
 	cardsArray:[
 		{
 		vendor: "bitcoin", 
@@ -50,7 +48,13 @@ export default {
 		CCV: '666'
 		}
 	]
-	}}
+	}},
+	methods: {
+		pushCreatedCard(createdCard){
+			this.cardsArray.push(createdCard)
+			this.view = 'HomeView'
+		}
+	}
 }
 </script>
 
