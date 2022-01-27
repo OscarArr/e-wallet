@@ -1,7 +1,7 @@
 <template>
 	<div id="app">
 		<HomeView v-if="view=='HomeView'" @changeView="view='AddCardView'" :cards="cardsArray" />
-		<AddCardView v-if="view=='AddCardView'" @pushedCard="pushCreatedCard"/>
+		<AddCardView v-if="view=='AddCardView'" @pushedCard="pushCreatedCard" :cards="cardsArray"/>
 	</div>
 </template>
 
@@ -17,7 +17,7 @@ export default {
 	cardsArray:[
 		{
 		vendor: "bitcoin", 
-		cardNumber: "1234 5678 9012 3456", 
+		cardNumber: "1234567890123456", 
 		cardHolder: "Kent Aurén", 
 		expireMonth: "3", 
 		expireYear: "23", 
@@ -25,7 +25,7 @@ export default {
 		},
 		{
 		vendor: "blockchain", 
-		cardNumber: "1234 5678 9012 3156", 
+		cardNumber: "1234567890123156", 
 		cardHolder: "Kent Aurén", 
 		expireMonth: "3", 
 		expireYear: "23", 
@@ -33,7 +33,7 @@ export default {
 		},
 		{
 		vendor: "evil", 
-		cardNumber: "1337 1337 1337 1337", 
+		cardNumber: "1337133713371337", 
 		cardHolder: "OSCAR ARRHENIUS", 
 		expireMonth: "13", 
 		expireYear: "37", 
@@ -41,7 +41,7 @@ export default {
 		},
 		{
 		vendor: "ninja", 
-		cardNumber: "1338 1337 1337 1337", 
+		cardNumber: "1338133713371337", 
 		cardHolder: "OSCAR ARRHENIUS", 
 		expireMonth: "13", 
 		expireYear: "37", 
@@ -59,12 +59,39 @@ export default {
 </script>
 
 <style lang="scss">
+@import url('https://fonts.googleapis.com/css2?family=PT+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@700&display=swap');
+
+* {
+	margin: 0;
+	padding: 0;
+	font-family: 'PT Mono', monospace;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'Source Sans Pro', sans-serif;
+}
+
+h1 {
+	font-weight: bolder;
+	font-size: 1.7rem;
+}
+
+h6 {
+	color: darkgray;
+}
+
 #app {
 	font-family: Avenir, Helvetica, Arial, sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	text-align: center;
-	color: #2c3e50;
-	margin-top: 60px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	min-width: 375px;
+	max-width: 465px;
+	// padding: 1rem;
+	height: 100vh;
 }
 </style>
