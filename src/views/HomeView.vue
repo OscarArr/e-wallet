@@ -132,12 +132,13 @@ export default {
 	}
 
 	.remove-card-btn {
-		margin: 0 1rem -0.8rem auto;
+		margin: 0 1rem 0 auto;
 		padding: 0.1rem;
 		width: 7rem;
 		border: 2px solid red;
 		border-radius: 0.5rem;
 		background-color: white;
+		transform: translateY(0.9rem);
 		
 			h6 {
 				margin: 0;

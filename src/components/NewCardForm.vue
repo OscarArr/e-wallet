@@ -4,9 +4,12 @@
     <input class="num" 
     type="text" maxlength="16" minlength="16"
 	placeholder="#### #### #### ####"
+	onkeypress="return /[0-9, Enter]/i.test(event.key)"
     v-model="newCard.cardNumber">
 	<p>CARDHOLDER NAME</p>
+	<!-- <p v-if="" class="error">{{errors.cardNumber}}</p> -->
     <input type="text" class="name" placeholder="FIRSTNAME LASTNAME" maxlength="20" 
+	onkeypress="return /[a-ö, ' ', Enter]/i.test(event.key)"
     v-model="newCard.cardHolder">
     <p class="valid-label">VALID THRU</p>
     <div class="expireDate-CCV">
@@ -28,8 +31,8 @@
         </option>
       </select>
       <p>CCV</p>
-      <input class="ccv" type="number" 
-      maxlength="3"
+      <input class="ccv" type="num" 
+      maxlength="3" onkeypress="return /[0-9, Enter]/i.test(event.key)"
       v-model="newCard.CCV">
     </div>
 	<p>CARD VENDOR</p>
@@ -41,7 +44,7 @@
     <option value="ninja">NINJA BANK</option>
   </select>
   <div class="submit">
-    <p class="error">{{errorMessage}}</p>
+    <p class="error">{{errors.submitError}}</p>
     <button class="add-card-button">ADD CARD</button>
   </div>
 </form>
@@ -72,27 +75,38 @@ export default {
       expireYear: '',
       CCV: ''
     },
-    errorMessage: ""
+    errors: {
+		cardNumber: "",
+		cardholderName: "",
+		ccvNumber: "",
+		submitError: ""
+	},
+	computed: {
+
+	}
   }},
   methods: {
     cardPreview(){
+      this.errors.submitError = ""
       this.$emit('updateCard', this.newCard)
     },
     pushNewCard(){
           if (this.cards.find((number) => number.cardNumber == this.newCard.cardNumber)){
-            this.errorMessage ='Detta kort finns redan i din e-wallet!'
+            this.errors.submitError ='Detta kort finns redan i din e-wallet!'
+          } else if (this.newCard.cardNumber == ''){
+            this.errors.submitError = 'Vänligen, fyll i ett kortnummer'
           } else if (this.newCard.vendor == '' ){
-            this.errorMessage = 'Vänligen, välj en bank'
+            this.errors.submitError = 'Vänligen, välj en bank'
           } else if ( this.cards.find((cardVendor) => cardVendor.vendor == this.newCard.vendor)) {
-            this.errorMessage = 'Du har redan ett kort av denna bank'
+            this.errors.submitError = 'Du har redan ett kort av denna bank'
           } else if (this.newCard.expireYear == ''){
-            this.errorMessage = 'Vänligen, fyll i giltighetsår'
+            this.errors.submitError = 'Vänligen, fyll i giltighetsår'
           } else if (this.newCard.expireMonth == ''){
-            this.errorMessage = 'Vänligen, fyll i giltighetsmånad'
+            this.errors.submitError = 'Vänligen, fyll i giltighetsmånad'
           } else if (this.newCard.cardHolder == ''){
-            this.errorMessage = 'Vänligen, fyll i kortinnehavarns namn'
+            this.errors.submitError = 'Vänligen, fyll i kortinnehavarns namn'
           } else {
-            this.errorMessage = ""
+            this.errors = ""
             this.$emit('send', {...this.newCard})
           }
         }
