@@ -67,7 +67,7 @@ export default {
 
 .card {
 	max-width: 21rem;
-	min-width: 18rem;
+	min-width: 19rem;
 	width: 80vw;
 	/* margin: 1rem 1rem; */
 	max-height: 13rem; 

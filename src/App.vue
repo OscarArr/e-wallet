@@ -1,6 +1,6 @@
 <template>
 	<div id="app">
-		<HomeView v-if="view=='HomeView'" @changeView="view='AddCardView'" :cards="cardsArray" />
+		<HomeView v-if="view=='HomeView'" @changeView="view='AddCardView'" @removedCard="updateCardArray" :cards="cardsArray" />
 		<AddCardView v-if="view=='AddCardView'" @pushedCard="pushCreatedCard" :cards="cardsArray"/>
 	</div>
 </template>
@@ -28,30 +28,30 @@ export default {
 		// expireYear: "23", 
 		// CCV: '666'
 		// },
-		{
-		vendor: "blockchain", 
-		cardNumber: "1234567890123156", 
-		cardHolder: "Kent Aurén", 
-		expireMonth: "3", 
-		expireYear: "23", 
-		CCV: '666'
-		},
-		{
-		vendor: "evil", 
-		cardNumber: "1337133713371337", 
-		cardHolder: "OSCAR ARRHENIUS", 
-		expireMonth: "13", 
-		expireYear: "37", 
-		CCV: '666'
-		},
-		{
-		vendor: "ninja", 
-		cardNumber: "1338133713371337", 
-		cardHolder: "OSCAR ARRHENIUS", 
-		expireMonth: "13", 
-		expireYear: "37", 
-		CCV: '666'
-		}
+		// {
+		// vendor: "blockchain", 
+		// cardNumber: "1234567890123156", 
+		// cardHolder: "Kent Aurén", 
+		// expireMonth: "3", 
+		// expireYear: "23", 
+		// CCV: '666'
+		// },
+		// {
+		// vendor: "evil", 
+		// cardNumber: "1337133713371337", 
+		// cardHolder: "OSCAR ARRHENIUS", 
+		// expireMonth: "13", 
+		// expireYear: "37", 
+		// CCV: '666'
+		// },
+		// {
+		// vendor: "ninja", 
+		// cardNumber: "1338133713371337", 
+		// cardHolder: "OSCAR ARRHENIUS", 
+		// expireMonth: "13", 
+		// expireYear: "37", 
+		// CCV: '666'
+		// }
 	]
 	}},
 	watch: {
@@ -63,6 +63,9 @@ export default {
 		pushCreatedCard(createdCard){
 			this.cardsArray.push(createdCard)
 			this.view = 'HomeView'
+		},
+		updateCardArray(newCardArray){
+			this.cardsArray = newCardArray
 		}
 	}
 }

@@ -3,9 +3,10 @@
 	<p>CARD NUMBER</p>
     <input class="num" 
     type="text" maxlength="16" minlength="16"
+	placeholder="#### #### #### ####"
     v-model="newCard.cardNumber">
 	<p>CARDHOLDER NAME</p>
-    <input type="text" class="name" maxlength="20" 
+    <input type="text" class="name" placeholder="FIRSTNAME LASTNAME" maxlength="20" 
     v-model="newCard.cardHolder">
     <p class="valid-label">VALID THRU</p>
     <div class="expireDate-CCV">
@@ -99,7 +100,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 
 form p {
 	margin: 0 0 0.2rem 0.5rem;
@@ -115,14 +116,14 @@ input[type=text] {
   margin: 0 0 0.5rem 0;
   width: 100%;
   max-width: 21rem;
-  border: 1px solid;
+  border: 2px solid;
   border-radius: 0.5rem;
 }
 
 select {
   background-color: white;
   border-style: none;
-  border: 1px solid;
+  border: 2px solid;
   border-radius: 0.5rem;
 }
 
@@ -199,7 +200,7 @@ form  * {
   margin-left: auto;
   -webkit-appearance: none;
   -moz-appearance: textfield;
-  border: 1px solid;
+  border: 2px solid;
   border-radius: 0.5rem;
 } 
 
@@ -227,6 +228,11 @@ form  * {
   width: 100%;
   border-radius: 0.5rem;
   border-style: none;
+
+	&:hover {
+		box-shadow: 2px 2px 5px 3px rgba(0, 0, 0, 0.2);
+		background-color: rgba(0, 0, 0, 0.9);
+	}
 } 
 
 .error {
