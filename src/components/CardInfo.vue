@@ -46,11 +46,6 @@ export default {
 		},
 		name(){
 			return this.renderCard.cardHolder ? this.renderCard.cardHolder : "NNNNN NNNNNNNN"
-			// if(this.renderCard.cardHolder) {
-			// 	return this.renderCard.cardHolder
-			// } else {
-			// 	return "NNN NNNNN"
-			// }
 		},
 		expireMonth(){
 			return this.renderCard.expireMonth ? this.renderCard.expireMonth : "MM"
