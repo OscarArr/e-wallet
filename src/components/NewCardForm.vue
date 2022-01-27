@@ -139,7 +139,7 @@ form {
 }
 
 form  * {
-  padding: 1rem 1.5rem;
+  padding: 1rem 1rem;
   font-size: 1rem;
   text-transform: uppercase;
   
@@ -172,14 +172,17 @@ form  * {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
+  align-items: flex-start;
   height: 5rem;
   padding: 0;
   margin: 0.5rem 0;
+  width: 100%;
 } 
 
 .expireDate-CCV select {
-  width: 30%;
+  width: 5rem;
   margin-right: 0.3rem;
+  /* flex-basis: 20%; */
 }
 
 .expireDate-CCV p {
@@ -187,7 +190,8 @@ form  * {
 }
 
 .expireDate-CCV p:nth-last-child(2){
-  margin:0 0 0.2rem 1rem;
+  margin:0 3rem 0.2rem 0;
+  align-self: flex-end;
   }
 
  .ccv {
@@ -207,10 +211,22 @@ form  * {
   /* margin-top: 0.5rem; */
 } 
 
+.submit {
+	width: 100%;
+	padding: 0;
+	margin: 1rem 0;
+	align-self: flex-end;
+}
+
 .add-card-button {
   grid-area: button;
   padding: 1rem;
-  margin: 1rem;
+  /* margin: 1rem; */
+  background-color: black;
+  color: white;
+  width: 100%;
+  border-radius: 0.5rem;
+  border-style: none;
 } 
 
 .error {

@@ -10,6 +10,11 @@ import AddCardView from './views/AddCardView.vue'
 import HomeView from './views/HomeView.vue'
 
 export default {
+	created() {
+		if(localStorage.getItem('savedCards')){
+			this.cardsArray = JSON.parse(localStorage.getItem('savedCards'))
+		}
+	},
 	name: 'App',
 	components: {AddCardView, HomeView},
 	data(){return{
@@ -23,32 +28,37 @@ export default {
 		// expireYear: "23", 
 		// CCV: '666'
 		// },
-		// {
-		// vendor: "blockchain", 
-		// cardNumber: "1234567890123156", 
-		// cardHolder: "Kent Aurén", 
-		// expireMonth: "3", 
-		// expireYear: "23", 
-		// CCV: '666'
-		// },
-		// {
-		// vendor: "evil", 
-		// cardNumber: "1337133713371337", 
-		// cardHolder: "OSCAR ARRHENIUS", 
-		// expireMonth: "13", 
-		// expireYear: "37", 
-		// CCV: '666'
-		// },
-		// {
-		// vendor: "ninja", 
-		// cardNumber: "1338133713371337", 
-		// cardHolder: "OSCAR ARRHENIUS", 
-		// expireMonth: "13", 
-		// expireYear: "37", 
-		// CCV: '666'
-		// }
+		{
+		vendor: "blockchain", 
+		cardNumber: "1234567890123156", 
+		cardHolder: "Kent Aurén", 
+		expireMonth: "3", 
+		expireYear: "23", 
+		CCV: '666'
+		},
+		{
+		vendor: "evil", 
+		cardNumber: "1337133713371337", 
+		cardHolder: "OSCAR ARRHENIUS", 
+		expireMonth: "13", 
+		expireYear: "37", 
+		CCV: '666'
+		},
+		{
+		vendor: "ninja", 
+		cardNumber: "1338133713371337", 
+		cardHolder: "OSCAR ARRHENIUS", 
+		expireMonth: "13", 
+		expireYear: "37", 
+		CCV: '666'
+		}
 	]
 	}},
+	watch: {
+		cardsArray: function() {
+			localStorage.setItem('savedCards', JSON.stringify(this.cardsArray))
+		}
+	},
 	methods: {
 		pushCreatedCard(createdCard){
 			this.cardsArray.push(createdCard)
@@ -78,7 +88,7 @@ h1 {
 }
 
 h6 {
-	color: darkgray;
+	color: rgba(0, 0, 0, 0.55);
 }
 
 #app {
