@@ -15,38 +15,38 @@ export default {
 	data(){return{
 		view: 'HomeView',
 	cardsArray:[
-		{
-		vendor: "bitcoin", 
-		cardNumber: "1234567890123456", 
-		cardHolder: "Kent Aurén", 
-		expireMonth: "3", 
-		expireYear: "23", 
-		CCV: '666'
-		},
-		{
-		vendor: "blockchain", 
-		cardNumber: "1234567890123156", 
-		cardHolder: "Kent Aurén", 
-		expireMonth: "3", 
-		expireYear: "23", 
-		CCV: '666'
-		},
-		{
-		vendor: "evil", 
-		cardNumber: "1337133713371337", 
-		cardHolder: "OSCAR ARRHENIUS", 
-		expireMonth: "13", 
-		expireYear: "37", 
-		CCV: '666'
-		},
-		{
-		vendor: "ninja", 
-		cardNumber: "1338133713371337", 
-		cardHolder: "OSCAR ARRHENIUS", 
-		expireMonth: "13", 
-		expireYear: "37", 
-		CCV: '666'
-		}
+		// {
+		// vendor: "bitcoin", 
+		// cardNumber: "1234567890123456", 
+		// cardHolder: "Kent Aurén", 
+		// expireMonth: "3", 
+		// expireYear: "23", 
+		// CCV: '666'
+		// },
+		// {
+		// vendor: "blockchain", 
+		// cardNumber: "1234567890123156", 
+		// cardHolder: "Kent Aurén", 
+		// expireMonth: "3", 
+		// expireYear: "23", 
+		// CCV: '666'
+		// },
+		// {
+		// vendor: "evil", 
+		// cardNumber: "1337133713371337", 
+		// cardHolder: "OSCAR ARRHENIUS", 
+		// expireMonth: "13", 
+		// expireYear: "37", 
+		// CCV: '666'
+		// },
+		// {
+		// vendor: "ninja", 
+		// cardNumber: "1338133713371337", 
+		// cardHolder: "OSCAR ARRHENIUS", 
+		// expireMonth: "13", 
+		// expireYear: "37", 
+		// CCV: '666'
+		// }
 	]
 	}},
 	methods: {

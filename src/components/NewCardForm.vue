@@ -2,12 +2,10 @@
   <form @submit.prevent="pushNewCard" @input="cardPreview"> 
 	<p>CARD NUMBER</p>
     <input class="num" 
-    placeholder="#### #### #### ####"
     type="text" maxlength="16" minlength="16"
     v-model="newCard.cardNumber">
 	<p>CARDHOLDER NAME</p>
-    <input type="text" class="name"
-    placeholder="FIRSTNAME LASTNAME" maxlength="20" 
+    <input type="text" class="name" maxlength="20" 
     v-model="newCard.cardHolder">
     <p class="valid-label">VALID THRU</p>
     <div class="expireDate-CCV">
@@ -50,17 +48,17 @@
 
 <script>
 export default {
-  beforeMount(){
-    const blankCard = {
-      vendor: 'empty',
-      cardNumber: '################',
-      cardHolder: 'NNNNN NNNNNNN',
-      expireMonth: 'MM',
-      expireYear: 'YY',
-      CCV: '000'
-    }
-    this.$emit('updateCard', blankCard)
-  },
+//   beforeMount(){
+//     const blankCard = {
+//       vendor: 'empty',
+//       cardNumber: '################',
+//       cardHolder: 'NNNNN NNNNNNN',
+//       expireMonth: 'MM',
+//       expireYear: 'YY',
+//       CCV: '000'
+//     }
+//     this.$emit('updateCard', blankCard)
+//   },
    props: {
         cards: Array
     },

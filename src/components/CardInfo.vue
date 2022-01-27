@@ -8,11 +8,11 @@
 		<p v-if="renderCard" class="card-number">{{cardNumber}}</p>
 		<div class="cardholder-name">
 			<p>CARDHOLDER NAME</p>
-			<p v-if="renderCard.cardHolder" class="cardholder">{{name}}</p>
+			<p class="cardholder">{{name}}</p>
 		</div>
 		<div class="valid-date">
 			<p>VALID THRU</p>
-			<p>{{renderCard.expireMonth}}/{{renderCard.expireYear}}</p>
+			<p>{{expireMonth}}/{{expireYear}}</p>
 		</div>
 	</section>
 </template>
@@ -45,10 +45,21 @@ export default {
 			}
 		},
 		name(){
-			return (this.renderCard.cardHolder ? this.renderCard.cardHolder : "NNNNN NNNNNNNN")
+			return this.renderCard.cardHolder ? this.renderCard.cardHolder : "NNNNN NNNNNNNN"
+			// if(this.renderCard.cardHolder) {
+			// 	return this.renderCard.cardHolder
+			// } else {
+			// 	return "NNN NNNNN"
+			// }
+		},
+		expireMonth(){
+			return this.renderCard.expireMonth ? this.renderCard.expireMonth : "MM"
+		},
+		expireYear(){
+			return this.renderCard.expireYear ? this.renderCard.expireYear : "YY"
 		},
 		classGenerator(){
-			return this.renderCard.vendor
+			return this.renderCard.vendor ? this.renderCard.vendor : "empty"
 		}
 	}
 }
